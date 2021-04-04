@@ -1,0 +1,10 @@
+*.*
+
+## C/C++
+!*.c
+!*.cpp
+!*.h
+## markdown
+!*.md
+## git
+!.gitignore
