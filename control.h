@@ -33,25 +33,25 @@ int translation(int x,int y) {
 
 int where(symbol player) {
 	MapType* tmp = (MapType*)malloc(9*sizeof(MapType));
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < 9; i++) {//还差一步能赢
 		if (map[i] != empty) continue;
-		//printf("%d", i);
 		memcpy(tmp, map, 9 * sizeof(MapType));
-
 		tmp[i] = player;
 		if (Win(tmp) == player) return i;
-
+	}
+	for (int i = 0; i < 9; i++) {//还差一步会输
+		if (map[i] != empty) continue;
+		memcpy(tmp, map, 9 * sizeof(MapType));
 		tmp[i] = -player;
 		if (Win(tmp) == (symbol)-player) return i;
 	}
-	//printf("\n");
-
 	free(tmp);
+	
 	int re;
 	for (re = 0; re < 9; re++) {
 		if (map[re] == empty) {
-			if ((re == 1 || re == 7) && map[re - 1] + map[re + 1] == 0) continue;
-			if ((re == 3 || re == 5) && map[re - 3] + map[re + 3] == 0) continue;		
+			if ((re == 1 || re == 7) && (map[re - 1] + map[re + 1] == 0 || map[8 - re] == -player)) continue;
+			if ((re == 3 || re == 5) && (map[re - 3] + map[re + 3] == 0 || map[8 - re] == -player)) continue;
 			if (re == 0 && (map[re + 1] + map[re + 2] == 0 || map[re + 3] + map[re + 6] == 0)) continue;
 			if (re == 2 && (map[re - 1] + map[re - 2] == 0 || map[re + 3] + map[re + 6] == 0)) continue;
 			if (re == 6 && (map[re + 1] + map[re + 2] == 0 || map[re - 3] + map[re - 6] == 0)) continue;

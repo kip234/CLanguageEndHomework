@@ -11,11 +11,11 @@ int main() {
 	LoadImg();
 	InitWindow();
 	int location;
+	
 begain:
 	while (1)
 	{
 		location = where(computer);
-		printf("%d\n", location);
 		map[location] = computer;
 		Draw();
 		if (isOver()) break;
@@ -26,9 +26,9 @@ begain:
 		Draw();
 		if (isOver()) break;
 	}
-	
 	system("pause");
 	InitGlobal();
 	goto begain;
+	
 	return 0;
 }

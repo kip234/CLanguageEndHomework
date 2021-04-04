@@ -1,10 +1,10 @@
-*.*
+## Visual Studio
+.*
+Debug
+Release
+*.sln
+*.vcxproj
+*.filters
+*.user
 
-## C/C++
-!*.c
-!*.cpp
-!*.h
-## markdown
-!*.md
-## git
 !.gitignore
