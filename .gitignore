@@ -8,3 +8,5 @@
 !*.md
 ## git
 !.gitignore
+##picture
+!.bmp
